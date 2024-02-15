@@ -6,6 +6,8 @@
 clc
 clear
 close all
+
+addpath('Test\')
 %%
 Vf = 4;
 Ra = 0.0096;
@@ -25,7 +27,7 @@ LHSX = 0.02;
 
 Cs_fet = inf        %% snubber capacitance of ideal switch 
 Rs_fet = 1e8  %% snubber resistance of ideal switch
-Vf = 0.6            %% Body diode drop 
+Vdf = 0.6            %% Body diode drop 
 
 fss = 5e3;          %% Switchign frequency
 Tss = 1/fss;
@@ -34,7 +36,7 @@ Tdead = Tss/100;
 %%
 % Open Circuit Test (Back EMF)
 
-OCout = sim('OC_test.slx')
+OCout = sim('Test\OC_test.slx')
 
 %%
 tt = OCout.ArmatureVoltage.Time';
