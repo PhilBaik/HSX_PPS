@@ -16,8 +16,9 @@ Rf = 0.0054;
 Lf = 0.0125;
 Laf = 0.00847;
 J = 137;
-w_initial = 163.55;
-n_initial = w_initial/2/pi*60;
+
+n_initial = 2000;
+w_initial = n_initial/60*2*pi;
 
 
 
