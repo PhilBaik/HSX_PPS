@@ -51,7 +51,19 @@ target_t = flat_del_t + max_current_t;
 only_16gen.max_needed_current = only_16gen.maxIo-only_16gen.Io(1,find(only_16gen.time>target_t,1));
 
 %% Parallel
+<<<<<<< HEAD
 Kp = 0.001
+=======
+Kp = 0.1
+Ki = 10
+Kanti = 0.98
+Ilimit = 2000
+
+%% Series 1
+Kp = 50
+Ki = 100
+Kanti = 0.8
+>>>>>>> origin/main
 Ki = 0
 Kanti = 0
 Ilimit = 2000
