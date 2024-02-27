@@ -56,9 +56,9 @@ Kanti = 0.98
 Ilimit = 2000
 
 %% Series 1
-Kp = 0.01
-Ki = 1
-Kanti = 0.95
+Kp = 50
+Ki = 100
+Kanti = 0.8
 Ki = 0
 Kanti = 0
 Ilimit = 2000
