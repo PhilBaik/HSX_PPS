@@ -32,9 +32,10 @@ LHSX = 0.02;
 fs = 5e3;          %% Switchign frequency
 Ts = 1/fs;
 Tdead = Ts/100;
+fdead = 1/Tdead;
 
-Tsamp = 0.0001;
-fsamp = 1/Tsamp;
+fsamp = 50e3;
+Tsamp = 1/fsamp;
 
 flat_del_t = 1;
 %% simulink 
@@ -50,19 +51,41 @@ target_t = flat_del_t + max_current_t;
 only_16gen.max_needed_current = only_16gen.maxIo-only_16gen.Io(1,find(only_16gen.time>target_t,1));
 
 %% Parallel
-Kp = 0.1
-Ki = 10
-Kanti = 0.98
-Ilimit = 2000
-
-%% Series 1
-Kp = 0.01
-Ki = 1
-Kanti = 0.95
+Kp = 0.001
 Ki = 0
 Kanti = 0
 Ilimit = 2000
 
+T_trigger = 20
+T_end = 40
+fs = 5e3;          %% Switchign frequency
+Ts = 1/fs;
+Tdead = Ts/100;
+fdead = 1/Tdead;
+
+fsamp = 50e3;
+Tsamp = 1/fsamp;
+
+flat_del_t = 1;
+%% Series 1
+Kp = 0.03
+Ki = 0.003
+Kanti = 0.95
+% Ki = 0
+% Kanti = 0
+Ilimit = 2000
+
+T_trigger = 20
+T_end = 40
+fs = 5e3;          %% Switchign frequency
+Ts = 1/fs;
+Tdead = Ts/100;
+fdead = 1/Tdead;
+
+fsamp = 50e3;
+Tsamp = 1/fsamp;
+
+flat_del_t = 1;
 %%
 figure(1)
 plot(only_16gen.time,only_16gen.Io,'k');grid on;
