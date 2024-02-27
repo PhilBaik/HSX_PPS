@@ -29,12 +29,12 @@ tau_field = Lf/Rf;
 RHSX = 0.09;
 LHSX = 0.02;
 
-fs = 5e3;          %% Switchign frequency
+fs = 5e3;          %% Switching frequency
 Ts = 1/fs;
 Tdead = Ts/100;
 fdead = 1/Tdead;
 
-fsamp = 50e3;
+fsamp = 500e3;
 Tsamp = 1/fsamp;
 
 flat_del_t = 1;
@@ -51,9 +51,7 @@ target_t = flat_del_t + max_current_t;
 only_16gen.max_needed_current = only_16gen.maxIo-only_16gen.Io(1,find(only_16gen.time>target_t,1));
 
 %% Parallel
-<<<<<<< HEAD
 Kp = 0.001
-=======
 Kp = 0.1
 Ki = 10
 Kanti = 0.98
@@ -63,7 +61,6 @@ Ilimit = 2000
 Kp = 50
 Ki = 100
 Kanti = 0.8
->>>>>>> origin/main
 Ki = 0
 Kanti = 0
 Ilimit = 2000
@@ -80,24 +77,31 @@ Tsamp = 1/fsamp;
 
 flat_del_t = 1;
 %% Series 1
-Kp = 0.03
-Ki = 0.003
+Vf = 3.1
+Kp = 5
+Ki = 0.1
+% Kp = 1
+% Ki = 1
 Kanti = 0.95
 % Ki = 0
 % Kanti = 0
 Ilimit = 2000
 
-T_trigger = 20
-T_end = 40
-fs = 5e3;          %% Switchign frequency
+T_trigger = 4
+T_end = 5.5
+fs = 1e3;          %% Switching frequency
 Ts = 1/fs;
 Tdead = Ts/100;
 fdead = 1/Tdead;
 
-fsamp = 50e3;
+fsamp = 100e3;
 Tsamp = 1/fsamp;
 
+n_module = 2;
+Phase_shift = Ts/n_module;
+z_phase_shift = round(Phase_shift/Tsamp);
 flat_del_t = 1;
+
 %%
 figure(1)
 plot(only_16gen.time,only_16gen.Io,'k');grid on;
