@@ -78,8 +78,8 @@ Tsamp = 1/fsamp;
 flat_del_t = 1;
 %% Series 1
 Vf = 3.1
-Kp = 5
-Ki = 0.1
+Kp = 0.01
+Ki = 0
 % Kp = 1
 % Ki = 1
 Kanti = 0.95
@@ -94,7 +94,7 @@ Ts = 1/fs;
 Tdead = Ts/100;
 fdead = 1/Tdead;
 
-fsamp = 100e3;
+fsamp = 50e3;
 Tsamp = 1/fsamp;
 
 n_module = 2;
