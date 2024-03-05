@@ -49,16 +49,24 @@ flat_del_t = 1;
 
 %% Multi 1
 VDC = 50;
+Lc = 100e-6;
 Vf = 3.1
-K = 100
+n=2;
+Ltot = LHSX+La+Lc/n;
+K = 50;
 Kp = K*Ltot;
-Ki = -K*Rtot;
+Ki = K*Rtot;
+K2 = 1;
+Kpp = K2*(2*LHSX+2*La+Lc);
+Kii = K2*2*Rtot;
+Kaa = 0;
 % Kp = 1
 % Ki = 1
 Kanti = 0.95
 % Ki = 0
 % Kanti = 0
 Ilimit = 2000
+multi_enable = 1;
 
 T_trigger = 4
 T_end = 5.5
@@ -74,3 +82,19 @@ n_module = 2;
 Phase_shift = Ts/n_module;
 z_phase_shift = round(Phase_shift/Tdead);
 flat_del_t = 1;
+
+%%
+t = out.simout.Time;
+check1 = out.simout.Data;
+%%
+t2 = out.simout.Time;
+check2 = out.simout.Data;
+%%
+
+figure
+plot(t,check1,'DisplayName','single')
+hold on;grid on;legend;
+plot(t2,check2,'DisplayName','double')
+
+
+
