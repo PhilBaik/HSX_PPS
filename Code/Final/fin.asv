@@ -106,7 +106,7 @@ close all
 fig_num = 10;
 
 ax=figure(fig_num);
-ax.Position = [fig_num fig_num*10 600 200]
+ax.Position = [fig_num fig_num*10 500 200]
 plot(t3,check3,'k','LineWidth',1.5,'DisplayName','w/o compensator');hold on;
 a=plot(t2,check2,'Color',[0.1 0.65 0.25],'LineWidth',2,'DisplayName','double');hold on;
 a.MarkerEdgeColor = "#80B3FF"
@@ -119,12 +119,12 @@ ylabel('Output Current [A]')
 xlabel('Time [s]')
 xlim([14 20])
 ax = gca;
-exportgraphics(ax,'io1.pdf','ContentType','vector')
+% exportgraphics(ax,'io1.pdf','ContentType','vector')
 fig_num = fig_num+1;
 
 
 ax=figure(fig_num);
-ax.Position = [fig_num fig_num*10 600 200]
+ax.Position = [fig_num fig_num*10 500 200]
 plot(t3,check3,'k','LineWidth',1.5,'DisplayName','w/o compensator');hold on;
 a=plot(t2,check2,'Color',[0.1 0.65 0.25],'LineWidth',2,'DisplayName','double');hold on;
 a.MarkerEdgeColor = "#80B3FF"
@@ -140,10 +140,10 @@ xlim([15.6 16.2])
 ylim([850 858])
 ax = gca;
 fig_num = fig_num+1;
-exportgraphics(ax,'io2.pdf','ContentType','vector')
+% exportgraphics(ax,'io2.pdf','ContentType','vector')
 
 ax=figure(fig_num);
-ax.Position = [fig_num fig_num*10 600 200]
+ax.Position = [fig_num fig_num*10 500 200]
 
 yyaxis left
 a=plot(t2,check2,'Color',[0.1 0.65 0.25],'LineWidth',2,'DisplayName','double');hold on;
@@ -163,39 +163,22 @@ xlabel('Time [s]')
 xlim([16.0456 16.0461])
 ax = gca;
 fig_num = fig_num+1;
-exportgraphics(ax,'io3.pdf','ContentType','vector')
+% exportgraphics(ax,'io3.pdf','ContentType','vector')
 
 
 ax=figure(fig_num);
-ax.Position = [fig_num fig_num*10 600 200]
+ax.Position = [fig_num fig_num*10 500 200]
 
-a=plot(t2,IL1,'Color','#A2142F','LineWidth',2,'DisplayName','I_{L1}');hold on;
+a=plot(t2,IL1,'Color','#A2142F','LineWidth',2,'DisplayName','double');hold on;
 a.MarkerEdgeColor = "#80B3FF"
-ylabel('Inductor Current [A]')
-plot(t2,IL2,'--','Color','#EDB120','LineWidth',1.5,'MarkerIndices',1:2000:length(t),'MarkerSize',5,'DisplayName','I_{L2}');
+ylabel('Output Current [A]')
+plot(t2,IL2,'--','Color','#EDB120','LineWidth',1.5,'MarkerIndices',1:2000:length(t),'MarkerSize',5,'DisplayName','single');
 
-grid on;legend('Location','northwest');
+grid on;legend('Location','northeast');
 set(gca,'fontname','times')
 legend('boxoff')
 ax = gca;
+
 xlabel('Time [s]')
-fig_num = fig_num+1;
-exportgraphics(ax,'iL1.pdf','ContentType','vector')
-
-ax=figure(fig_num);
-ax.Position = [fig_num fig_num*10 600 200]
-
-a=plot(t2,IL1,'Color','#A2142F','LineWidth',2,'DisplayName','I_{L1}');hold on;
-a.MarkerEdgeColor = "#80B3FF"
-ylabel('Inductor Current [A]')
-plot(t2,IL2,'--','Color','#EDB120','LineWidth',1.5,'MarkerIndices',1:2000:length(t),'MarkerSize',5,'DisplayName','I_{L2}');
-
-grid on;legend('Location','northwest');
-set(gca,'fontname','times')
-legend('boxoff')
 ax = gca;
-xlabel('Time [s]')
 fig_num = fig_num+1;
-xlim([15.9289 15.9294])
-ylim([420 440])
-exportgraphics(ax,'iL2.pdf','ContentType','vector')
