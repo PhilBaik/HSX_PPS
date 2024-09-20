@@ -48,9 +48,23 @@ Kanti = 0;
 % Ki = 0
 % Kanti = 0
 Limit1 = 0.9992;
+%% test1
+test1_sim_temp = out.vref;
+test1_sim.vo = test1_sim_temp.Data(:,1);
+test1_sim.tt = test1_sim_temp.Time(:,1);
+test1_sim.vo_max = max(test1_sim.vo)*ones(size(test1_sim.vo));
+
+test_sim.vdif = test1_sim.vo_max-test1_sim.vo;
+
+figure(1)
+plot(test1_sim.tt,test1_sim.vo); hold on
+plot(test1_sim.tt,test1_sim.vo_max)
+
+figure(2)
+plot(test_sim.vdif); hold on
+
+
 %%
-
-
 out1=sim('HSX_single_fin.slx');
 
 %% Multi 1
